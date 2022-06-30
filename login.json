@@ -1,1 +1,10 @@
-{"aws_access_key_id":"AKIAXKK6H7MGFXBZMK54", "aws_secret_access_key": "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", "region_name": "us-east-1"}
+{
+  "aws_access_key_id": "AKIAXKK6H7MGFXBZMK54",
+  "aws_secret_access_key": "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",
+  "region_name": "us-east-1",
+  "username": "airflow",
+  "password": "airflow",
+  "host": "postgres",
+  "port": 5432,
+  "db_name": "airflow"
+}

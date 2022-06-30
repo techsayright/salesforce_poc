@@ -88,10 +88,17 @@ def transToPgs(**kwargs):
     data =ti.xcom_pull(key='msg')
     # print(data)
 
+    loginInfo=json.load(open('/login.json'))
+    username = loginInfo['username']
+    password = loginInfo['password']
+    host = loginInfo['host']
+    port = loginInfo['port']
+    db_name = loginInfo['db_name']
+
     # postgres_conn = PostgresHook(postgres_conn_id='postgres_conn')
     # postgres_conn = postgres_conn.get_conn()
 
-    postgres_str = 'postgresql://airflow:airflow@postgres:5432/airflow'
+    postgres_str = f'postgresql://{username}:{password}@{host}:{port}/{db_name}'
     postgres_conn = create_engine(postgres_str)
 
     data.to_sql('final_data', con=postgres_conn, if_exists='replace', index=False)
